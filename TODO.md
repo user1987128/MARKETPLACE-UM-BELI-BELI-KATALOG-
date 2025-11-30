@@ -1,0 +1,5 @@
+- [ ] Update app/Models/Product.php: Change 'stock' to 'stock_quantity', add 'description', 'sale_price' to fillable.
+- [ ] Update app/Http/Controllers/ProductController.php: Change validation 'stock' to 'stock_quantity', add validations for description, sale_price (nullable), category_id. Replace $request->all() with explicit field assignment in store and update methods.
+- [ ] Update resources/views/products/create.blade.php: Change input name from "stock" to "stock_quantity", add inputs for description, sale_price, category_id.
+- [ ] Update resources/views/products/edit.blade.php: Same changes.
+- [ ] Update resources/views/products/index.blade.php: Add display for stock_quantity in the product cards.
