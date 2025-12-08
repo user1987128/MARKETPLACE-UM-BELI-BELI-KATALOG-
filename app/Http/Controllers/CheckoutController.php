@@ -30,6 +30,13 @@ class CheckoutController extends Controller
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
+        $request->validate([
+            'fullname' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'address' => 'required|string',
+            'payment_method' => 'required|in:bank_transfer,cod,dana,ovo,gopay',
+        ]);
+
         $userId = Auth::check() ? Auth::id() : null;
 
         $totalAmount = 0;
@@ -42,6 +49,10 @@ class CheckoutController extends Controller
             'user_id' => $userId,
             'total_amount' => $totalAmount,
             'status' => 'pending',
+            'fullname' => $request->fullname,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'payment_method' => $request->payment_method,
         ]);
 
         // Create order items

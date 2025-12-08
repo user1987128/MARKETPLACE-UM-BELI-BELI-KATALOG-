@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\GuideController;
 
 
 // =========================================
@@ -22,6 +23,9 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 
 // Detail produk (HANYA 1 ROUTE INI!)
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.detail');
+
+// User Guide
+Route::get('/user-guide', [GuideController::class, 'userGuide'])->name('user.guide');
 
 
 // =========================================
@@ -38,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+        // Admin Guide
+        Route::get('/admin-guide', [GuideController::class, 'adminGuide'])->name('admin.guide');
     });
 
     // =====================================
@@ -56,6 +63,11 @@ Route::middleware(['auth'])->group(function () {
     // =====================================
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+
+    // =====================================
+    // ORDERS — USER LOGIN
+    // =====================================
+    Route::get('/orders', [App\Http\Controllers\OrdersController::class, 'index'])->name('orders.index');
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

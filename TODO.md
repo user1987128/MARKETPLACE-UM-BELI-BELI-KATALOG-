@@ -1,5 +1,7 @@
-- [ ] Update app/Models/Product.php: Change 'stock' to 'stock_quantity', add 'description', 'sale_price' to fillable.
-- [ ] Update app/Http/Controllers/ProductController.php: Change validation 'stock' to 'stock_quantity', add validations for description, sale_price (nullable), category_id. Replace $request->all() with explicit field assignment in store and update methods.
-- [ ] Update resources/views/products/create.blade.php: Change input name from "stock" to "stock_quantity", add inputs for description, sale_price, category_id.
-- [ ] Update resources/views/products/edit.blade.php: Same changes.
-- [ ] Update resources/views/products/index.blade.php: Add display for stock_quantity in the product cards.
+# TODO: Add Documentation Pages to UM Beli Beli
+
+- [x] Create GuideController.php with adminGuide() and userGuide() methods
+- [x] Add routes in web.php: /admin-guide (admin only) and /user-guide (public)
+- [x] Create Blade view: resources/views/guide/admin.blade.php with Admin Guide content
+- [x] Create Blade view: resources/views/guide/user.blade.php with User Guide content
+- [x] Update navbar in resources/views/layouts/app.blade.php: Add User Guide link (all users), Admin Guide link (admin only)
