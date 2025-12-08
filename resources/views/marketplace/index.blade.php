@@ -140,7 +140,7 @@
                                         <div class="mt-auto">
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <span class="h5 text-primary fw-bold mb-0">
-                                                    $ {{ number_format($product->price, 2) }}
+                                                    Rp {{ number_format($product->price, 0, ',', '.') }}
                                                 </span>
                                                 <small class="text-muted">
                                                     <i class="bi bi-box-seam me-1"></i>
