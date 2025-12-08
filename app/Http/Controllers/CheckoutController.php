@@ -10,41 +10,34 @@ use App\Models\OrderItem;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Show the checkout form.
-     */
     public function index()
     {
         $cart = Session::get('cart', []);
         return view('checkout.index', compact('cart'));
     }
 
-    /**
-     * Process the checkout submission.
-     */
     public function process(Request $request)
     {
         $cart = Session::get('cart', []);
 
-        if(empty($cart)) {
+        if (empty($cart)) {
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
+        // VALIDASI — Cocok dengan input checkout kamu
         $request->validate([
-            'fullname' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
-            'address' => 'required|string',
-            'payment_method' => 'required|in:bank_transfer,cod,dana,ovo,gopay',
+            'address' => 'required|string|max:255',
+            'payment_method' => 'required|in:bank_transfer,cod,ewallet',
         ]);
 
-        $userId = Auth::check() ? Auth::id() : null;
+        $userId = Auth::id();
 
-        $totalAmount = 0;
-        foreach ($cart as $item) {
-            $totalAmount += $item['price'] * $item['quantity'];
-        }
+        // Hitung total
+        $totalAmount = collect($cart)->sum(function ($item) {
+            return $item['product']->price * $item['quantity'];
+        });
 
-        // Create new order
+        // SIMPAN ORDER
         $order = Order::create([
             'user_id' => $userId,
             'total_amount' => $totalAmount,
@@ -55,16 +48,17 @@ class CheckoutController extends Controller
             'payment_method' => $request->payment_method,
         ]);
 
-        // Create order items
+        // SIMPAN ITEM ORDER
         foreach ($cart as $item) {
             OrderItem::create([
                 'order_id' => $order->id,
-                'product_id' => $item['id'],
+                'product_id' => $item['product']->id,
                 'quantity' => $item['quantity'],
-                'price' => $item['price'],
+                'price' => $item['product']->price,
             ]);
         }
 
+        // KOSONGKAN CART
         Session::forget('cart');
 
         return redirect()->route('marketplace')->with('success', 'Order placed successfully!');
