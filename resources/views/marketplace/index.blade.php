@@ -109,37 +109,31 @@
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 g-md-4">
                         @forelse ($products as $product)
                             <div class="col">
-                                <div class="card product-card h-100">
+                                <div class="card product-card h-100 border-0 shadow-sm">
                                     @if($product->image)
-                                        <div class="position-relative">
+                                        <div class="position-relative overflow-hidden">
                                             <img src="{{ asset('storage/' . $product->image) }}"
-                                                 class="card-img-top"
+                                                 class="card-img-top w-100"
                                                  alt="{{ $product->name }}"
-                                                 style="height: 200px; object-fit: cover;">
-                                            <div class="position-absolute top-0 end-0 p-2">
-                                                <span class="badge bg-primary">
-                                                    <i class="bi bi-eye me-1"></i>
-                                                    View
-                                                </span>
-                                            </div>
+                                                 style="height: 250px; object-fit: cover; transition: transform 0.3s ease;">
                                         </div>
                                     @else
                                         <div class="card-img-top d-flex align-items-center justify-content-center bg-light"
-                                             style="height: 200px;">
-                                            <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                                             style="height: 250px;">
+                                            <i class="bi bi-image text-muted" style="font-size: 4rem;"></i>
                                         </div>
                                     @endif
 
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title fw-bold mb-2">{{ $product->name }}</h5>
+                                    <div class="card-body d-flex flex-column p-3">
+                                        <h6 class="card-title fw-bold mb-2 text-truncate" style="font-size: 1.1rem;">{{ $product->name }}</h6>
 
-                                        <p class="card-text text-muted small mb-2" style="height: 40px; overflow: hidden;">
-                                            {{ Str::limit($product->description, 60) }}
+                                        <p class="card-text text-muted small mb-3" style="height: 48px; overflow: hidden; line-height: 1.4;">
+                                            {{ Str::limit($product->description, 80) }}
                                         </p>
 
                                         <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                <span class="h5 text-primary fw-bold mb-0">
+                                            <div class="d-flex flex-column mb-3">
+                                                <span class="h6 text-primary fw-bold mb-1">
                                                     Rp {{ number_format($product->price, 0, ',', '.') }}
                                                 </span>
                                                 <small class="text-muted">
@@ -149,7 +143,7 @@
                                             </div>
 
                                             <a href="{{ route('product.detail', $product->id) }}"
-                                               class="btn btn-primary w-100">
+                                               class="btn btn-dark w-100 rounded-pill">
                                                 <i class="bi bi-eye me-2"></i>
                                                 View Details
                                             </a>

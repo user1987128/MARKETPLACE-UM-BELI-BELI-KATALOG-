@@ -1,13 +1,15 @@
-# Currency Standardization and View Button Fix
+# Design Upgrade and Bug Fix Tasks
 
-## Completed Tasks
-- [x] Analyze currency displays in resources/views/orders/index.blade.php and resources/views/marketplace/index.blade.php
-- [x] Confirm 'My Orders' page already uses correct Rp format
-- [x] Fix 'Marketplace' page currency from '$' to 'Rp {{ number_format($product->price, 0, ',', '.') }}'
-- [x] Commit and push changes to repository
-- [x] Clear Laravel caches (view:clear and cache:clear)
+## Marketplace Page Design Enhancement
+- [x] Enhance product card design in resources/views/marketplace/index.blade.php for cleaner, modern look with prominent images and vertical stacking.
 
-## Pending Tasks
-- [ ] Verify currency display on Marketplace page (hard refresh and confirm Rp with dot separators)
-- [ ] Test 'View' button functionality on 'My Orders' page
-- [ ] Report any RED errors from F12 Browser Console for 'View' button
+## Product Detail Page Conversion
+- [x] Convert resources/views/product/detail.blade.php from Tailwind CSS to Bootstrap 5.
+- [x] Implement two-column layout: Left for image/gallery, Right for product details (name, form for quantity, price, description, 'Add to Cart' button).
+
+## My Orders Page Bug Fix
+- [x] Fix 'View' button in resources/views/orders/index.blade.php to link to route('orders.show', $order->id).
+
+## Commit and Push
+- [ ] Commit all changes.
+- [ ] Push changes to repository.
