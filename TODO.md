@@ -11,5 +11,5 @@
 - [x] Fix 'View' button in resources/views/orders/index.blade.php to link to route('orders.show', $order->id).
 
 ## Commit and Push
-- [ ] Commit all changes.
-- [ ] Push changes to repository.
+- [x] Commit all changes.
+- [x] Push changes to repository.

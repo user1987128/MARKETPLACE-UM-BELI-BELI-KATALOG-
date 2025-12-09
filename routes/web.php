@@ -45,6 +45,12 @@ Route::middleware(['auth'])->group(function () {
 
         // Admin Guide
         Route::get('/admin-guide', [GuideController::class, 'adminGuide'])->name('admin.guide');
+
+        // =====================================
+        // ADMIN ONLY — VIEW ALL ORDERS
+        // =====================================
+        Route::get('/admin/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+        Route::get('/admin/orders/{order}', [AdminOrderController::class, 'show'])->name('admin.orders.show');
     });
 
     // =====================================
@@ -68,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
     // ORDERS — USER LOGIN
     // =====================================
     Route::get('/orders', [App\Http\Controllers\OrdersController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [App\Http\Controllers\OrdersController::class, 'show'])->name('orders.show');
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
