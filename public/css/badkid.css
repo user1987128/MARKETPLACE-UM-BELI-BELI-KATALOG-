@@ -1,0 +1,5 @@
+/* Minimal styles to approximate Badkidstore look */
+.product-card { border: none; }
+.product-card img { object-fit: cover; height: 220px; width:100%; }
+.price { font-weight: 700; color: #111; }
+.card-body .card-title { font-size: 0.9rem; }
