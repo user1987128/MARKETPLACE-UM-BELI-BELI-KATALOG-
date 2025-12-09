@@ -18,7 +18,7 @@ class MarketplaceController extends Controller
 
         if ($request->filled('category')) {
             $query->whereHas('category', function($q) use ($request) {
-                $q->where('id', $request->category);
+                $q->where('slug', $request->category);
             });
         }
 

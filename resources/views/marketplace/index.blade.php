@@ -20,15 +20,9 @@
                     <h5 class="card-title">Kategori</h5>
                     <ul class="list-unstyled mb-0">
                         <li><a href="{{ route('marketplace') }}">Semua Produk</a></li>
-                        @isset($categories)
-                            @foreach($categories as $category)
-                                <li>
-                                    <a href="{{ route('marketplace', ['category'=>$category->id]) }}">
-                                        {{ $category->name }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        @endisset
+                        <li><a href="{{ route('marketplace', ['category'=>'alat-tulis']) }}">Alat Tulis</a></li>
+                        <li><a href="{{ route('marketplace', ['category'=>'clothing']) }}">Clothing</a></li>
+                        <li><a href="{{ route('marketplace', ['category'=>'aksesoris']) }}">Aksesoris</a></li>
                     </ul>
                 </div>
             </div>
