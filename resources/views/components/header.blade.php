@@ -1,11 +1,12 @@
-<header class="sticky top-0 bg-white border-b z-50">
-<div class="max-w-[1280px] mx-auto px-4 h-16 flex items-center justify-between">
-<h1 class="font-bold text-xl text-[#0077b6]">UM beli beli V2</h1>
-<nav class="hidden md:flex gap-6 text-sm">
-<a href="/" class="hover:text-[#0077b6]">Home</a>
-<a href="/products" class="hover:text-[#0077b6]">Produk</a>
-<a href="/about" class="hover:text-[#0077b6]">Tentang</a>
-</nav>
-<a href="https://wa.me/6285736035251" class="bg-[#0077b6] text-white px-4 py-2 rounded text-sm">WhatsApp</a>
-</div>
+<header class="sticky top-0 bg-white border-bottom mb-4">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+        <h4 class="mb-0 fw-bold text-primary">UM beli beli V2</h4>
+
+        <nav class="d-flex gap-3">
+            <a href="{{ url('/') }}">Home</a>
+            <a href="{{ url('/products') }}">Produk</a>
+            <a href="{{ url('/tentang') }}">Tentang</a>
+            <a href="https://wa.me/6285736035251" target="_blank">WhatsApp</a>
+        </nav>
+    </div>
 </header>
