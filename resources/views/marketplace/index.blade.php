@@ -99,6 +99,4 @@
 </div>
 @endsection
 
-@push('styles')
-<link rel="stylesheet" href="{{ asset('css/badkid.css') }}">
-@endpush
+

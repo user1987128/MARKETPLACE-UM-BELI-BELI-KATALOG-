@@ -1,15 +1,13 @@
-# Design Upgrade and Bug Fix Tasks
+# Redesign UI/UX for UM BELI BELI
 
-## Marketplace Page Design Enhancement
-- [x] Enhance product card design in resources/views/marketplace/index.blade.php for cleaner, modern look with prominent images and vertical stacking.
-
-## Product Detail Page Conversion
-- [x] Convert resources/views/product/detail.blade.php from Tailwind CSS to Bootstrap 5.
-- [x] Implement two-column layout: Left for image/gallery, Right for product details (name, form for quantity, price, description, 'Add to Cart' button).
-
-## My Orders Page Bug Fix
-- [x] Fix 'View' button in resources/views/orders/index.blade.php to link to route('orders.show', $order->id).
-
-## Commit and Push
-- [x] Commit all changes.
-- [x] Push changes to repository.
+## Tasks
+- [x] Fix category filtering in MarketplaceController.php (use name instead of slug)
+- [x] Redesign header.blade.php (sticky, dark, logo, nav, icons, mobile menu)
+- [x] Add hero section to marketplace/index.blade.php
+- [x] Redesign product grid in marketplace/index.blade.php (Tailwind, dark theme, hover effects)
+- [x] Update sidebar in marketplace/index.blade.php (minimal, highlight active)
+- [x] Update footer.blade.php (dark theme)
+- [x] Update app.blade.php (dark background)
+- [x] Remove badkid.css link and styles
+- [x] Compile assets with npm run dev
+- [x] Test responsiveness and functionality (server running, categories seeded)
